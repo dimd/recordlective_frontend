@@ -1,6 +1,6 @@
 (function() {
   'use strict';
 
-  angular.module('recApp.topbar', []);
+  angular.module('recApp.topbar', ['recDB']);
 
 })();

@@ -153,15 +153,21 @@ a, a:hover, a:focus {
 	font-size:12pt;
 	line-height:26px;
 }
-.max #search-box {
+
+#search-box {
+  width: 340px;
+	position: relative;
+}
+
+.max #search-box form {
 	position:relative;
 	top:0;
 	right:35px;
 	margin:0; padding:0; border:0;
-	margin-left:20px;
+  margin-left:20px;
 	font-size:20px;
 }
-.min #search-box {
+.min #search-box form {
 	position:relative;
 	top:0;
 	right:35px;
@@ -207,10 +213,37 @@ a, a:hover, a:focus {
 	width:40px;
 	line-height:14px;
 }
+
+
 .btn-submit-search:hover {
 	color:#DB6A14;
 }
 
+#search-box .input-append {
+  margin: 0;
+}
+
+.autocomplete-list {
+  position: absolute;
+  right: 34px;
+  min-width: 319px;
+  max-width: 319px;
+  overflow-x: none;
+  clear : both; /* make sure it doesn't pull the next line up next to it */
+  z-index : 50;
+  list-style : none;
+  background-color: #e0e0e0;
+  border: solid 1px lightblue;
+  text-align : left;
+}
+
+.autocomplete-list li {
+  cursor: pointer;
+}
+
+.autocomplete-list .active {
+  background-color: lightblue;
+}
 
 
 /** MENU **/

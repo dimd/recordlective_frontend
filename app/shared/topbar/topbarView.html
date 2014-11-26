@@ -1,12 +1,36 @@
-<div id="top-bar" class="navbar navbar-fixed-top max">        	
-	<a href="" id="site-logo" class="logo pull-left">
-	</a>
-	<form id="search-box" class="pull-right">
-		<div class="input-append">
-			<input type="text" class="search-query search-input not-rounded" placeholder="Artist Search..."/>
-			<button type="submit" class="btn btn-submit-search"><i class="fa fa-search"></i></button>
-		</div>
-	</form>
+<div id="top-bar" class="navbar navbar-fixed-top max" ng-controller="SearchController">        	
+  <a href="" id="site-logo" class="logo pull-left">
+  </a>
+  <div class="pull-right">
+    <autocomplete>
+      <ul class="autocomplete-list" ng-show="vm.isListVisible()">
+
+        <div class="row-fluid">
+          <div class="span3">
+            <span ng-show="vm.hasArtists()">Artists</span>
+          </div>
+          <div class="span9">
+            <li autocomplete-item="artist" ng-repeat="artist in vm.results.artists">
+              {{ artist.name }}
+            </li>
+          </div>
+        </div>
+
+        <div class="row-fluid">
+          <div class="span3">
+            <span ng-show="vm.hasReleases()">Releases</span>
+          </div>
+          <div class="span9">
+            <li autocomplete-item="release" ng-repeat="release in vm.results.releases">
+              {{ release.name }} by {{ release.artist.name }}
+            </li>
+          </div>
+        </div>
+
+      </ul> 
+    </autocomplete>
+  </div>
+
 
 	<!-- <a id="menu-toggle" class="btn-group pull-right menu-toggle-btn">
 		<i class="fa fa-cog"></i> 

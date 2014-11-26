@@ -1,0 +1,9 @@
+<div id="search-box">
+  <form>
+    <div class="input-append">
+      <input type="text" ng-model="vm.query" ng-change="vm.search()" autocomplete="off" class="search-query search-input not-rounded" placeholder="Search..."/>
+      <button type="submit" class="btn btn-submit-search"><i class="fa fa-search"></i></button>
+    </div>
+  </form>
+  <div ng-transclude></div>
+</div>
