@@ -1,0 +1,91 @@
+<!doctype html>
+<html ng-app="recApp">
+  <head>
+    <meta charset="utf-8"/>
+
+    <title ng-bind="title">Recordlective</title>
+
+    <!-- Extraneous CSS -->
+    <link rel="stylesheet" type="text/css" href="assets/libs/bootstrap-2.3.2-legacy/bootstrap/css/bootstrap.min.css">
+    <link href="http://fonts.googleapis.com/css?family=Courgette|Open+Sans:300&amp;subset=greek,latin,cyrillic" rel="stylesheet" type="text/css">  
+    <link rel="stylesheet" type="text/css" href="assets/libs/components-font-awesome/css/font-awesome.min.css">
+
+    <!-- my CSS -->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+    <!-- Extraneous JS -->
+    <script src="assets/libs/jquery/jquery.min.js"></script>
+    <script src="assets/libs/angular/angular.js"></script>
+    <script src="assets/libs/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="assets/libs/ui-router-extras/release/ct-ui-router-extras.min.js"></script>
+    <script src="assets/libs/angular-youtube-mb/dist/angular-youtube-embed.min.js"></script>
+    <script src="assets/libs/satellizer/satellizer.min.js"></script> 
+    <script src="assets/libs/color-thief/dist/color-thief.min.js"></script> 
+
+    <!-- my JS -->
+    <script src="app/shared/recDB/recDB.js"></script>
+    <script src="app/shared/recDB/recDBService.js"></script>
+
+    <script src="app/shared/youtubeAPI/youtubeAPI.js"></script>
+    <script src="app/shared/youtubeAPI/youtubeAPIService.js"></script>
+
+    <script src="app/shared/player/player.js"></script>
+    <script src="app/shared/player/playerService.js"></script>
+
+    <script src="app/shared/topbar/topbar.js"></script>
+    <script src="app/shared/topbar/topbarDirectives.js"></script>
+    <script src="app/shared/topbar/topbarControllers.js"></script>
+
+    <script src="app/shared/controls/controls.js"></script>
+    <script src="app/shared/controls/controlsDirectives.js"></script>
+    <script src="app/shared/controls/controlsFilters.js"></script>
+
+    <script src="app/discographies/discography.js"></script>
+    <script src="app/discographies/discographyControllers.js"></script>
+    <script src="app/discographies/discographyDirectives.js"></script>
+
+    <script src="app/listen/listen.js"></script>
+    <script src="app/listen/listenFilters.js"></script>
+    <script src="app/listen/listenControllers.js"></script>
+    <script src="app/listen/listenDirectives.js"></script>
+
+
+    <script src="app/appModule.js"></script>
+    <script src="app/appStates.js"></script>
+
+  </head>
+  <body>
+
+    <div class="container">
+      <rectopbar></rectopbar>
+      <div ui-view="discography"></div>
+      <div ui-view="listen"></div>
+    </div><!-- end of .container -->
+
+    <controls-panel></controls-panel>
+
+    <div class="container">
+    <div id="footer">
+      <div class="row">
+        <div class="span4">
+          <div id="like-box-container">
+
+          </div> 
+        </div>
+        <div class="span8 pull-right">
+          Thanks to/Powered by
+        </div>
+      </div>
+      <div class="row">
+        <p class="span6">RECORDLECTIVE.COM © 2013 All Rights Reserved</p>
+        <p class="span6 pull-right">
+        <a href="">About/Contact</a> · <a href="">Help/FAQ</a> · <a href="">Privacy/Terms</a>
+        </p>
+      </div>
+    </div><!--end of #footer -->
+    </div>
+
+
+
+  </body>
+</html>

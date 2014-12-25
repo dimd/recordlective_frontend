@@ -1,0 +1,91 @@
+<div id="player" ng-show="vm.ps.ready">
+
+  <div class="container">
+    <div class="row">
+      <div class="span12"><h1>{{ vm.ps.release.name }} <span class="title-alt">by <a ui-sref="discography.albums({artistGid: vm.ps.artist.gid, artistName: vm.ps.release.artist_credit_name})">{{ vm.ps.release.artist_credit_name }}</a></span></h1></div>
+    </div>
+  </div>
+  <div id="media-bg">
+    <div class="container">
+      <div class="row">
+        <div id="media-container" class="span12">
+          <div id="bigcover">
+            <img actual-src="http://dimd.webfactional.com/api/cover/{{ vm.ps.release.release_gid }}/" src="assets/img/cover-na.gif" crossorigin>
+          </div>
+          <div id="ytplayer">
+            <youtube-video player="vm.ytplayer" video-id="vm.ps.currentlyPlaying.videos[vm.ps.currentlyPlaying.selectedVideo].id" player-vars="vm.playerOptions" player-width="'100%'" player-height="'100%'"></youtube-video>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div id="tracklist-etc-container" class="span12">
+        <div id="album-options">
+          <div id="share-options" class="row">
+            <p>
+            <span class="label-txt">Share this album</span><br>
+            BUTTONS (Facebook, Twitter, etc)<br>
+            </p>
+          </div>
+          <div id="match-vote" class="row">
+            Does the video match with the current song?<br>
+            <a href="" id="positive-vote"><i class="icon-thumbs-up"></i> Yes</a> 
+            <a href="" id="negative-vote"><i class="icon-thumbs-down"></i> No</a>
+            <br>
+            <span class="label-txt">Tip: Use the ZAP button for a different match</span>
+          </div>
+        </div>
+        <div id="tracklist-container">
+          <p class="list-title">TRACKLIST:</p>
+          <ul id="tracklist" class="">
+            
+            <li tracklist-item="track" ng-repeat="track in vm.ps.playlist">
+              <a href="" place="{{ track.position }}" duration="track.length">{{ track.title }}</a>
+            </li>
+            <!--<li class="active-track"><a href="" place="11" duration="273">All the Time</a></li>-->
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end of #player -->
+
+<!--<div class="container">-->
+      <!--<div id="extras">-->
+        <!--<div class="row">-->
+          <!--<div class="span8">-->
+            <!--<h2>Bio / Info</h2>-->
+          <!--</div>-->
+          <!--<div class="span4">-->
+            <!--<h3>You Might Also Like</h3>-->
+          <!--</div>-->
+        <!--</div>-->
+        <!--<div class="row">-->
+          <!--<div class="span8" id="bio">-->
+            <!--<div class="colored-content">-->
+              <!--<p class="label-txt">From Wikipedia</p>-->
+              <!--<p>Born. Died.</p>-->
+            <!--</div>-->
+          <!--</div>-->
+          <!--<div class="span4">-->
+            <!--<div class="row">-->
+              <!--<div class="span4" id="similar">-->
+                <!--<ul class="colored-content">-->
+                  <!--<li><a href="">Bands</a></li>-->
+                  <!--<li><a href="">More Bands</a></li>-->
+                  <!--<li><a href="">Extra Bands</a></li>-->
+                  <!--<li><a href="">Extra Extra Extra Extra Extra Extra Bands</a></li>-->
+                <!--</ul>-->
+              <!--</div>-->
+            <!--</div>-->
+            <!--<div class="row">-->
+              <!--<div class="span4 " id="dnt-btn">-->
+                <!--<p class="lead colored-content">Cool kids donate.</p>-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>[> end of #extras <]-->

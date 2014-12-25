@@ -35,7 +35,7 @@
 
   function autocomplete() {
 
-    function AutocompleteController(recDBService) {
+    function AutocompleteController($state, recDBService) {
       var vm = this;
 
       vm.active = -1;
@@ -119,6 +119,13 @@
       }
 
       function select(item) {
+        if (item.type === 'artist') {
+          $state.go('discography.albums', {artistGid: item.gid, artistName: item.name});
+        } else {
+          $state.go('listen', {releaseGid: item.release_gid, artistName: item.artist_credit_name , releaseName: item.name});          
+        }
+        vm.results = null;
+        vm.query = '';
       }
 
       function selectActive() {
@@ -127,7 +134,7 @@
 
     }
 
-    AutocompleteController.$inject = ['recDBService'];
+    AutocompleteController.$inject = ['$state', 'recDBService'];
 
     function link(scope, element, attrs) {
       element.find('input').bind('keydown', function(event) {
@@ -206,6 +213,8 @@
     function link(scope, element, attrs, controller) {
       var item = scope.$eval(attrs.autocompleteItem);
 
+      item.type = attrs.autocompleteItem;
+          
       scope.$watch(function() { return controller.isActive(item); }, function(active) {
         if (active) {
           element.addClass('active');
@@ -231,11 +240,30 @@
   }
 
   // End autocomplete item.
+  
+  // Start login.
+
+  function login() {
+    function link(scope, element, attrs) {
+      element.bind('click', function() {
+        element.find('#menu.menu-container').slideToggle('fast');
+      });
+    }
+
+    return {
+      link: link,
+      restrict: 'E',
+      templateUrl: 'app/shared/topbar/login.html'
+    };
+  }
+
+  // End login.
 
   angular
     .module('recApp.topbar')
     .directive('rectopbar', recTopbar)
     .directive('autocomplete', autocomplete)
-    .directive('autocompleteItem', autocompleteItem);
+    .directive('autocompleteItem', autocompleteItem)
+    .directive('login', login);
 
 })();

@@ -1,4 +1,6 @@
-node_modules
-assets/libs
+client/assets/libs
 *~
 *.swp
+.ropeproject
+*.pyc
+*.db

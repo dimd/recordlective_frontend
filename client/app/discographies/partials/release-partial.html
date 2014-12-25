@@ -1,0 +1,30 @@
+<ul id="discog-tabs" class="nav nav-tabs" data-tabs="tabs">
+<li ui-sref-active="active"><a ui-sref="discography.albums({artistGid: vm.artist.gid, artistName: vm.artist.name})">Albums</a></li>
+<li ui-sref-active="active"><a ui-sref="discography.eps({artistGid: vm.artist.gid, artistName: vm.artist.name})">EPs</a></li>
+<li ui-sref-active="active"><a ui-sref="discography.singles({artistGid: vm.artist.gid, artistName: vm.artist.name})">Singles</a></li>
+<li ui-sref-active="active"><a ui-sref="discography.osts({artistGid: vm.artist.gid, artistName: vm.artist.name})">Soundtracks</a></li>
+<li ui-sref-active="active"><a ui-sref="discography.compilations({artistGid: vm.artist.gid, artistName: vm.artist.name})">Compilations</a></li>
+</ul>
+<div id="discog-content" class="tab-content" ng-if="vm.hasReleases()">
+  <div class="tab-pane active" id="albums-tab">
+    <div id="albumlist">
+      <div class="row">
+        <a ui-sref="listen({releaseGid: album.release_gid, artistName: album.artist.name, releaseName: album.name})" class="album span3" ng-repeat="album in vm.releases">
+          <div class="cover">
+            <div class="cover-overlay" title="{{ album.name }}">
+              <i class="fa fa-play"></i>
+            </div>
+            <img alt="{{ album.name }} cover image." actual-src="{{ album.image_url }}" ng-src="assets/img/cover-na.gif" />
+          </div>
+          <div title="{{ album.name }}" class="title">{{ album.name }}</div>
+          <div class="year">({{ album.year }})</div>
+        </a>
+      </div> 
+    </div>
+  </div>
+</div>
+
+<div ng-if="!vm.hasReleases()">
+  No {{ vm.getVerboseType() }}.
+</div>
+

@@ -10,6 +10,10 @@ body {
 	border-bottom:90px solid #e2e2e2;
 }
 
+body > .container {
+  background-color: #fff;
+}
+
 
 
 /** TYPOGRAPHY **/
@@ -170,7 +174,7 @@ a, a:hover, a:focus {
 .min #search-box form {
 	position:relative;
 	top:0;
-	right:35px;
+	right: 27px;
 	margin:0; padding:0; border:0;
 	margin-left:12px;
 	height:25px;
@@ -183,21 +187,23 @@ a, a:hover, a:focus {
 	width:240px;
 	font-size:20px;
 	padding-top:3px;
-	-webkit-transition:width 0.1s ease;
+	-webkit-transition: width 0.1s ease;
 	   -moz-transition:width 0.1s ease;
 		 -o-transition:width 0.1s ease;
-			transition:width 0.1s ease;
+			
+	transition: height 0.1s ease;
 }
 .min #search-box .search-input {
-	margin:0;
+	margin: 0;
 	padding: 0 5px;
 	border-color:#fff;
 	height:24px;
-	width:180px;
-	-webkit-transition:width 0.1s ease;
+	width: 270px;
+	-webkit-transition: height 0.1s ease;
 	   -moz-transition:width 0.1s ease;
 		 -o-transition:width 0.1s ease;
-			transition:width 0.1s ease;
+			
+	transition: height 0.1s ease;
 }
 .max #search-box .btn-submit-search {
 	background: #fff;
@@ -205,6 +211,7 @@ a, a:hover, a:focus {
 	height:50px;
 	width:70px;
 	font-size:20px;
+	transition: height 0.1s ease;
 }
 .min #search-box .btn-submit-search {
 	background: #fff;
@@ -212,6 +219,7 @@ a, a:hover, a:focus {
 	height:26px;
 	width:40px;
 	line-height:14px;
+	transition: height 0.1s ease;
 }
 
 
@@ -226,28 +234,47 @@ a, a:hover, a:focus {
 .autocomplete-list {
   position: absolute;
   right: 34px;
-  min-width: 319px;
-  max-width: 319px;
+  min-width: 317px;
+  max-width: 317px;
   overflow-x: none;
   clear : both; /* make sure it doesn't pull the next line up next to it */
   z-index : 50;
   list-style : none;
-  background-color: #e0e0e0;
-  border: solid 1px lightblue;
+  background-color: #eee;
+  border: solid 2px #fff;
   text-align : left;
+  -webkit-box-shadow: 0px 4px 0px rgba(0, 0, 0, 0.2);  -moz-box-shadow: 0px 4px 0px rgba(0, 0, 0, 0.2);  
+  box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.2);
+}
+
+.autocomplete-list .span3 {
+    color: #999;
+    text-align: right;
+    padding: 5px 0px;
+    font-size: 14px;
+    letter-spacing: 1px;
 }
 
 .autocomplete-list li {
   cursor: pointer;
+  padding: 1px 5px;
+  border-left: 1px solid #bbb;
+  line-height: 24px;
+  font-size: 12px;
+  font-weight: 600;
 }
 
 .autocomplete-list .active {
-  background-color: lightblue;
+  background-color: #336699;
+  color: #fff;      
 }
 
 
 /** MENU **/
 
+#menu {
+  color: #fff;
+}
 
 .max #menu {
 	top:80px;
@@ -262,15 +289,15 @@ a, a:hover, a:focus {
 	margin-right:276px;
 }
 .menu-container {
-	border:0;
-	width:100%;
-	min-width:1055px;
-	height:auto;
-	position:absolute;
-	padding:20px;
-	background:#333;
-	background: rgba(0, 0, 0, 0.8);
-	-webkit-box-shadow: 0px 5px 0px rgba(0, 0, 0, 0.3);
+  border:0;
+  width:100%;
+  min-width:1055px;
+  height:auto;
+  position:absolute;
+  padding:20px;
+  background:#333;
+  background: rgba(0, 0, 0, 0.8);
+  -webkit-box-shadow: 0px 5px 0px rgba(0, 0, 0, 0.3);
        -moz-box-shadow: 0px 5px 0px rgba(0, 0, 0, 0.3);
             box-shadow: 0px 5px 0px rgba(0, 0, 0, 0.3);
 	display:none;
@@ -301,10 +328,10 @@ a, a:hover, a:focus {
 #account-options a:hover, #account-options .normal:hover {
 	color:#DB6A14;
 }
-#account-options a, #account-options a:hover [class^="icon-"]{
+#account-options a, #account-options a:hover .fa{
 	color:#fff;
 }
-#account-options [class^="icon-"], input[type="checkbox"]{
+#account-options .fa, input[type="checkbox"]{
 	margin-right:10px;
 	width:15px;
 	display: inline-block;
@@ -322,7 +349,7 @@ a, a:hover, a:focus {
 	padding:0; border:0;
 	display:block;
 }
-.login-option [class^="icon-"]{
+.login-option .fa{
 	margin-right:10px;
 	padding-left:10px;
 	width:15px;
@@ -333,7 +360,7 @@ a, a:hover, a:focus {
 		 -o-transition:All 0.1s ease;
 			transition:All 0.1s ease;
 }
-.login-option:hover [class^="icon-"]{
+.login-option:hover .fa{
 	margin-right:15px;
 	padding-left:10px;
 	width:15px;
@@ -383,19 +410,61 @@ a, a:hover, a:focus {
             box-shadow: 0px -2px 0px rgba(0, 0, 0, 0.07);
 }
 #progress-bar-container {
+  position: relative;
 	height:6px;
-	width:95%;
+	
+  width: 99%;
 	background:#ccc;
 	margin:0 auto;
 	margin-top:5px;
 	margin-bottom:10px;
+  cursor: pointer;
 }
+#progress-bar {
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #000;
+  width: 0;
+  transition: all .1s;
+}
+#volume-bar-container {
+  position: relative;
+	height:3px;
+	
+  width: 65px;
+	background:#ccc;
+	margin:0 auto;
+	
+  margin-top: 23px;
+}
+#volume-bar-container:hover {
+  cursor: pointer;
+}
+#volume-bar {
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #777;
+  width: 0;
+}
+
+#volume-bar-container:hover #volume-bar {
+    background: #111;
+}
+
 #controls {
-	width:250px;
+	width:200px;
 	height:50px;
 	margin:0 10px 0 30px;
 }
-#controls a {
+#controls a, #speaker a {
 	width:24px;
 	height:50px;
 	line-height:58px;
@@ -406,16 +475,18 @@ a, a:hover, a:focus {
 		 -o-transition:All 0.2s ease-in;
 			transition:All 0.2s ease-in;
 }
-#controls a:hover {
+#controls a:hover, #speaker a:hover {
 	color:#000;
 }
+#speaker a:focus {
+  text-decoration: none;
+}
 #now-playing {
-	position:absolute;
-	left: 25%;
-	width:580px;
+	position: relative;
+	left: 30px;
+	width: 460px;
 	height:50px;
-	padding:0px 20px 0px 40px;
-	margin: 0 auto;
+	margin: 0px 20px 0px 40px;
 	color:#000;
 }
 #cover-small {
@@ -424,7 +495,7 @@ a, a:hover, a:focus {
 	background:#eee;
 }
 #track-info {
-	width:490px;
+	width: 380px;
 	height:50px;
 	margin-left:25px;
 }
@@ -440,6 +511,7 @@ a, a:hover, a:focus {
 	overflow:hidden; 
 	text-overflow:ellipsis; 
 	max-width:400px;
+	margin-top: 3px;
 }
 #time {
 	color:#000;
@@ -455,6 +527,8 @@ a, a:hover, a:focus {
 	font-weight:bold;
 	color:#999;
 	font-size:10pt;
+	position: relative;
+	bottom: 5px;
 }
 #btn-zap:hover {
 	color:#666;
@@ -462,7 +536,7 @@ a, a:hover, a:focus {
 #btn-zap:hover > i{
 	color:#eed307;
 }
-#btn-zap:hover > [class^="icon-"] {
+#btn-zap:hover > [class^="fa-"] {
 	line-height:1em;
 	display: inline-block;
 	-webkit-animation: spinner 3s infinite linear;
@@ -474,8 +548,10 @@ a, a:hover, a:focus {
 	font-size:16px;
 	color:#999;
 	cursor:help;
-	margin:0px 0px 0px 5px;
+	margin: 0px 0px 0px 3px;
 	display:inline-block;
+	position: relative;
+	bottom: 7px;
 }
 
 
@@ -516,9 +592,9 @@ a, a:hover, a:focus {
 			transition: all 0.3s ease-in-out;
 }
 #discog .cover img{
-	position:absolute;
 	width: 100%;
 	height: 100%;
+  text-align: left;
 }
 #discog .cover-notfound {
 	background: url(../img/cover-na.gif) center no-repeat;
@@ -527,6 +603,7 @@ a, a:hover, a:focus {
     position: absolute;
     width: 100%;
     height: 100%;
+    background-color: rgba(50, 50, 50, 0.4);
     overflow: hidden;
     opacity: 0;
 	-webkit-transition: all 0.2s ease-in-out;
@@ -641,7 +718,7 @@ a, a:hover, a:focus {
 	padding:3px 10px;
 	margin:5px 5px 5px 0px;
 }
-#match-vote a:hover, #match-vote a:hover [class^="icon-"]{
+#match-vote a:hover, #match-vote a:hover [class^="fa-"]{
 	color:#f5f5f5;
     background:#DB6A14;
 }
@@ -825,6 +902,7 @@ a, a:hover, a:focus {
 .nav-tabs > li {
   margin-bottom: -1px;
   margin-right:5px;
+  cursor: pointer;
 }
 .nav-tabs > li > a {
 	padding-top: 6px;
@@ -900,7 +978,7 @@ textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[ty
 .modal-body td {
 	padding-left:0px;
 }
-.modal-body [class^="icon-"] {
+.modal-body [class^="fa-"] {
 	margin-right:5px;
 	text-align:center;
 	width:15px;

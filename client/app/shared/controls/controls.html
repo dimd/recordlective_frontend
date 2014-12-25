@@ -1,0 +1,54 @@
+<div id="controls-panel" class="navbar navbar-fixed-bottom shadow-top" ng-show="vm.ps.showControls">
+  <div id="controls-panel">
+    <div id="progress-bar-container" progress-bar>
+      <span id="progress-bar"></span>
+    </div>
+    <div class="clearfix"></div>
+    <div id="controls" class="pull-left">                
+      <a ng-click="vm.ps.playPrevious()" href="" id="ctrl-prev"><i class="fa fa-step-backward fa-2x"></i></a>
+      <a ng-click="vm.ps.ytplayer.playVideo()" ng-show="!vm.ps.playing" href="" id="ctrl-play"><i class="fa fa-play fa-2x"></i></a>
+      <a ng-click="vm.ps.ytplayer.pauseVideo()" ng-show="vm.ps.playing" href="" id="ctrl-pause"><i class="fa fa-pause fa-2x"></i></a>
+      <a ng-click="vm.ps.stop()" href="" id="ctrl-stop"><i class="fa fa-stop fa-2x"></i></a>
+      <a ng-click="vm.ps.playNext()" href="" id="ctrl-next"><i class="fa fa-step-forward fa-2x"></i></a>
+    </div>
+    <div id="speaker" class="pull-left">
+      <a volume-speaker href="">
+          <i class="fa fa-volume-off fa-2x"></i>
+          <i ng-show="vm.ps.muted" class="fa fa-close fa-1x"></i>
+      </a>
+    </div>
+    <div volume-bar id="volume-bar-container" class="pull-left">
+      <span id="volume-bar"></span>
+    </div>
+    <div id="now-playing" class="pull-left">
+      <div id="cover-small" class="pull-left">
+        <img actual-src="{{ vm.ps.release.image_url }}" >
+      </div>
+      <div id="track-info" class="pull-left">
+        <table>
+          <tr>
+            <td class="label-txt">Now Playing:</td>
+            <td class="title-text">{{ vm.ps.currentlyPlaying.title }}</td>
+          </tr>
+          <tr>
+            <td class="label-txt">from:</td>
+            <td class="title-text">{{ vm.ps.release.artist_credit_name }} - {{ vm.ps.release.name }}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="row">
+      <div id="time" class="pull-right">{{ vm.ps.currentTime|time }} / {{ vm.ps.ytplayer.getDuration()|time }}</div>
+    </div>
+    <div class="row">
+      <div id="zap-container" class="pull-right">
+        <a ng-click="vm.ps.zap()" href="" id="btn-zap" >
+          <i class="fa fa-repeat"></i> ZAP
+        </a>
+        <span id="zap-tip" data-toggle="tooltip" title=" :( Wrong video? Click ZAP to fetch another one.">
+          <span class="label-txt">[?]</span>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>

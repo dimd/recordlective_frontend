@@ -1,5 +1,5 @@
 <div id="top-bar" class="navbar navbar-fixed-top max" ng-controller="SearchController">        	
-  <a href="" id="site-logo" class="logo pull-left">
+  <a ui-sref="main" id="site-logo" class="logo pull-left">
   </a>
   <div class="pull-right">
     <autocomplete>
@@ -22,7 +22,7 @@
           </div>
           <div class="span9">
             <li autocomplete-item="release" ng-repeat="release in vm.results.releases">
-              {{ release.name }} by {{ release.artist.name }}
+              {{ release.name }} by {{ release.artist_credit_name }}
             </li>
           </div>
         </div>
@@ -31,11 +31,6 @@
     </autocomplete>
   </div>
 
-
-	<!-- <a id="menu-toggle" class="btn-group pull-right menu-toggle-btn">
-		<i class="fa fa-cog"></i> 
-		<span>Login</span>
-		<i class="fa fa-chevron-down"></i>
-	</a> -->
+  <login></login>
 
 </div><!-- end of top-bar -->
