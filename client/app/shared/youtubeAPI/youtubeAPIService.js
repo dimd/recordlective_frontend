@@ -75,6 +75,9 @@
       var promise = $http({
         method: 'GET',
         url: videoUrl,
+        headers: {
+          'Authorization': undefined
+        },
         params: {
           part: 'id,snippet,contentDetails',
           id: videoIds.reduce(joinIds, ''),

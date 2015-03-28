@@ -1,0 +1,41 @@
+<a id="menu-toggle" class="btn-group pull-right menu-toggle-btn" ng-if="!vm.isAuthenticated()">
+Login <i class="fa fa-chevron-down"></i>
+</a>
+
+<a id="menu-toggle" class="btn-group pull-right menu-toggle-btn" ng-if="vm.isAuthenticated()">
+  <i class="fa fa-cog"></i> <i class="fa fa-chevron-down"></i>
+</a>
+
+<div id="menu" class="menu-container" ng-if="!vm.isAuthenticated()">
+  <div class="row">
+    <div class="pull-right login-list transition">
+      <ul>
+        <a ng-click="vm.authenticate('google')" href=""><li class="login-option google-login"><i class="fa fa-google-plus"></i>Google</li></a>
+        <a ng-click="vm.authenticate('facebook')" href=""><li class="login-option facebook-login"><i class="fa fa-facebook"></i>Facebook</li></a>
+        <a ng-click="vm.authenticate('twitter')" href=""><li class="login-option twitter-login"><i class="fa fa-twitter"></i>Twitter</li></a>
+      </ul>
+    </div>
+    <div class="pull-right">
+      <p>Sign in with one of these services:</p>
+      <ul>
+        <li>Massive Amounts of Cash</li>
+        <li>Free Drinks</li>
+        <li>Last.fm Scrobbling</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div id="menu" class="menu-container" ng-if="vm.isAuthenticated()">
+  <div class="row">
+    <ul id="account-options" class="unstyled pull-left">
+      <li class="normal"><label class="checkbox"><span class="normal">Last.fm Scrobbing</span><input type="checkbox"></label></li>
+      <li class="normal"><a href=""><i class="fa fa-star-empty"></i>My Favorites</a></li>
+      <li class="normal"><a href="" ng-click="vm.logout()"><i class="fa fa-signout"></i>Logout</a></li>
+      <li class="new-section"></li>
+      <li class="small"><a href=""><i class="fa fa-gift shadow-top"></i>Send us a gift</a></li>
+      <li class="small"><a href=""><i class="fa fa-remove"></i>Remove your account</a></li>
+    </ul>
+  </div>
+</div>
+

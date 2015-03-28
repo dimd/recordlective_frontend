@@ -8,7 +8,9 @@
     'recApp.topbar',
     'recApp.discography',
     'recApp.listen',
-    'recApp.controls'
+    'recApp.controls',
+    'recApp.login',
+    'satellizer'
   ]);
 
 })();

@@ -56,6 +56,7 @@
       vm.selectActive = selectActive;
 
       function search() {
+
         if (vm.query.length > 2) {
           recDBService.search(vm.query).success(function(data) {
             vm.results = data;
@@ -189,8 +190,6 @@
           element.find('.autocomplete-list').css({'display': 'block'});
         }
       });
-
-
     }
 
     return {
@@ -241,29 +240,11 @@
 
   // End autocomplete item.
   
-  // Start login.
-
-  function login() {
-    function link(scope, element, attrs) {
-      element.bind('click', function() {
-        element.find('#menu.menu-container').slideToggle('fast');
-      });
-    }
-
-    return {
-      link: link,
-      restrict: 'E',
-      templateUrl: 'app/shared/topbar/login.html'
-    };
-  }
-
-  // End login.
 
   angular
     .module('recApp.topbar')
     .directive('rectopbar', recTopbar)
     .directive('autocomplete', autocomplete)
-    .directive('autocompleteItem', autocompleteItem)
-    .directive('login', login);
+    .directive('autocompleteItem', autocompleteItem);
 
 })();
