@@ -2,8 +2,7 @@ from datetime import datetime, timedelta
 import os
 import jwt
 import requests
-from urlparse import parse_qsl
-from urllib import urlencode
+from urllib.parse import parse_qsl, urlencode
 from functools import wraps
 from flask import Flask, g, redirect, request, jsonify
 from flask.ext.sqlalchemy import SQLAlchemy
@@ -59,9 +58,11 @@ class User(db.Model):
         return check_password_hash(self.password, password)
 
     def to_json(self):
-        return dict(id=self.id, email=self.email, displayName=self.display_name,
+        return dict(id=self.id, email=self.email,
+                    displayName=self.display_name,
                     facebook=self.facebook, google=self.google,
                     linkedin=self.linkedin, twitter=self.twitter)
+
 
 db.create_all()
 
@@ -151,18 +152,17 @@ def facebook():
 @app.route('/auth/google', methods=['POST'])
 def google():
     access_token_url = 'https://accounts.google.com/o/oauth2/token'
-    people_api_url = 'https://www.googleapis.com/plus/v1/people/me/openIdConnect'
+    people_api_url = ('https://www.googleapis.com'
+                      '/plus/v1/people/me/openIdConnect')
     payload = dict(client_id=request.json['clientId'],
                    redirect_uri=request.json['redirectUri'],
                    client_secret=app.config['GOOGLE_SECRET'],
                    code=request.json['code'],
                    grant_type='authorization_code')
-    print payload
 
     # Step 1. Exchange authorization code for access token.
     r = requests.post(access_token_url, data=payload)
     token = r.json()
-    print token
     headers = {'Authorization': 'Bearer {0}'.format(token['access_token'])}
 
     # Step 2. Retrieve information about the current user.
@@ -215,5 +215,10 @@ def twitter():
         qs = urlencode(dict(oauth_token=oauth_token['oauth_token']))
         return redirect(authenticate_url + '?' + qs)
 
-if __name__ == '__main__':
+
+def main():
     app.run(port=8000)
+
+
+if __name__ == '__main__':
+    main()
