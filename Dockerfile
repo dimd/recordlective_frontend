@@ -19,14 +19,7 @@ RUN pip install -r server/requirements.txt
 
 RUN npm -g install bower
 
-# Setup user
-RUN adduser -D apprl \
-    && chown -R apprl:apprl /client
-
-USER apprl
-
-# Get the js stuff
-RUN cd /client && bower install
+RUN bower --allow-root install /client
 
 # Run the app
 WORKDIR /server
